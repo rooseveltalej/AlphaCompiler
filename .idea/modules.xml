@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AlphaCompiler.iml" filepath="$PROJECT_DIR$/AlphaCompiler.iml" />
-      <module fileurl="file://$PROJECT_DIR$/parser/parser.iml" filepath="$PROJECT_DIR$/parser/parser.iml" />
     </modules>
   </component>
 </project>
