@@ -1,50 +1,47 @@
 lexer grammar AlphaLexer;
 
-// keywords
-
-IF       : 'if';
-THEN     : 'while';
-ELSE     : 'else';
-WHILE    : 'while';
-DO       : 'do';
-LET      : 'let';
-IN       : 'in';
-BEGIN    : 'begin';
-END      : 'end';
-CONST    : 'const';
-VAR      : 'var';
-
-
-// symbols
-SEMMICOLON : ';';
-ASSIGN     : ':=';
-LEFTP      : '(';
-RIGHTP     : ')';
-COLON      : ':';
-VIR        : '~';
-ADD        : '+';
-SUB        : '-';
-MULT       : '*';
-DIV        : '/';
-MOD        : '%';
-EQEQ       : '==';
-NOTEQ      : '!=';
-LESS       : '<';
-GREATER    : '>';
-LESSEQ     : '<=';
-MOREEQ     : '>=';
+// Keywords
+IF :  ('if' | 'IF');
+THEN : ('then' | 'THEN');
+ELSE : ('else' | 'ELSE');
+WHILE : ('WHILE' | 'while');
+DO : ('DO' | 'do');
+LET : ('LET' | 'let');
+IN : ('IN' | 'in');
+BEGIN : ('BEGIN' | 'begin');
+END : ('END' | 'end');
+CONST : ('CONST' |'const');
+VAR : ('VAR' | 'var');
 
 
+SEMCOLON : ';';
+ASIG : ':=';
+LEFTPR : '(';
+RIGHTPR : ')';
+COLON : ':';
+TILDE : '~';
+ADD : '+';
+SUB : '-';
+MULT : '*';
+DIV : '/';
+MOD : '%';
+EQEQ : '==';
+NOTEQ : '!=';
+LESSTHAN : '<';
+MORETHAN : '>';
+LESSEQTHAN : '<=';
+MOREEQTHAN : '>=';
 
-// other tokens
-ID: ('_'|)LETTER(LETTER|DIGIT)*;
-NUMLiteral : DIGIT DIGIT*;
 
+// Other Tokens
+ID :('_' |)LETTER(LETTER|DIGIT)*;
+NumLiteral : DIGIT DIGIT*;
 
-fragment LETTER : 'a'..'z' | 'A' .. 'Z';
+// fragments
+fragment LETTER : 'a'..'z' | 'A'..'Z';
+fragment DIGIT : '0'..'9';
 
-fragment DIGIT : '0' ..'9';
+// Skip token
+LINE_COMMENT: '//' .*? '\r'? '\n' -> skip ;
 
-//skip tokens
-LINE_COMMENT:   '//' .*? '\r'? '\n' -> skip ;
-WS : [ \t\n\r]+ -> skip;
+WS: [ \t\r\n]+ -> skip;
